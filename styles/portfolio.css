@@ -1,0 +1,169 @@
+/* Страница портфолио */
+.portfolio {
+  min-height: 100vh;
+  background-color: #0a0a0a;
+  padding-top: 80px;
+  padding-bottom: 4rem;
+}
+
+.portfolio__header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  padding: 0 2rem;
+}
+
+.portfolio__title {
+  font-size: 4rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #00f2fe, #4facfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.portfolio__subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.portfolio__filter {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  padding: 0 2rem;
+}
+
+.portfolio__filter button {
+  padding: 0.5rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2rem;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+}
+
+.portfolio__filter button:hover,
+.portfolio__filter button.active {
+  background: linear-gradient(45deg, #00f2fe, #4facfe);
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.portfolio__item {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+}
+
+.portfolio__item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 2px;
+  background: linear-gradient(45deg, rgba(0, 242, 254, 0.1), rgba(79, 172, 254, 0.1));
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.portfolio__item:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 10px 30px rgba(0, 242, 254, 0.1),
+    0 0 0 1px rgba(0, 242, 254, 0.1);
+}
+
+.portfolio__item:hover::before {
+  background: linear-gradient(45deg, rgba(0, 242, 254, 0.25), rgba(79, 172, 254, 0.25));
+}
+
+.portfolio__image {
+  height: 250px;
+  overflow: hidden;
+}
+
+.portfolio__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.portfolio__item:hover .portfolio__image img {
+  transform: scale(1.05);
+}
+
+.portfolio__content {
+  padding: 1.5rem;
+}
+
+.portfolio__content h3 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.portfolio__content p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Медиа-запросы для страницы портфолио */
+@media (max-width: 768px) {
+  .portfolio__title {
+    font-size: 2.5rem;
+  }
+  
+  .portfolio__grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio {
+    padding-top: 60px;
+  }
+  
+  .portfolio__header {
+    margin-bottom: 2rem;
+  }
+  
+  .portfolio__grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+    gap: 1.5rem;
+  }
+  
+  .portfolio__filter {
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .portfolio__filter button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}

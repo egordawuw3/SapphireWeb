@@ -1,0 +1,230 @@
+/* Страница контактов */
+.contact {
+    min-height: 100vh;
+    background-color: #0a0a0a;
+    padding-top: 80px;
+    padding-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+  
+.contact__header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    padding: 0 2rem;
+    animation: fadeIn 1s ease-out;
+}
+  
+.contact__title {
+    font-size: 4rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* Добавлено для поддержки других браузеров */
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+  
+.contact__subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+  
+.contact__container {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: slideUp 0.8s ease-out 0.3s both;
+}
+  
+.contact__social {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 1rem;
+    padding: 3rem;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    backdrop-filter: blur(10px); /* Добавлен эффект размытия фона */
+    -webkit-backdrop-filter: blur(10px);
+}
+  
+.contact__social::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    padding: 2px;
+    background: linear-gradient(45deg, rgba(0, 242, 254, 0.1), rgba(79, 172, 254, 0.1));
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+  
+.contact__social h3 {
+    font-size: 1.75rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.contact__social h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+}
+  
+.contact__social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+  
+.contact__social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Улучшенная анимация */
+    position: relative;
+    overflow: hidden;
+}
+
+.contact__social-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+  
+.contact__social-links a:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 242, 254, 0.2);
+}
+
+.contact__social-links a:hover::before {
+    opacity: 1;
+}
+  
+.contact__social-links a img {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+    filter: brightness(0.9);
+}
+
+.contact__social-links a:hover img {
+    transform: scale(1.1);
+    filter: brightness(1);
+}
+
+/* Добавляем анимации */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+  
+/* Медиа-запросы для страницы контактов */
+@media (max-width: 768px) {
+    .contact__title {
+      font-size: 2.5rem;
+    }
+    
+    .contact__social {
+      padding: 2.5rem 2rem;
+    }
+    
+    .contact__social-links {
+      gap: 1.5rem;
+    }
+    
+    .contact__social-links a {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .contact__social-links a img {
+      width: 30px;
+      height: 30px;
+    }
+}
+  
+@media (max-width: 480px) {
+    .contact {
+      padding-top: 60px;
+    }
+    
+    .contact__header {
+      margin-bottom: 3rem;
+    }
+    
+    .contact__container {
+      padding: 0 1rem;
+      margin-bottom: 3rem;
+    }
+    
+    .contact__social {
+      padding: 2rem 1.5rem;
+    }
+    
+    .contact__social h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact__social-links {
+      gap: 1rem;
+    }
+    
+    .contact__social-links a {
+      width: 50px;
+      height: 50px;
+    }
+    
+    .contact__social-links a img {
+      width: 25px;
+      height: 25px;
+    }
+}

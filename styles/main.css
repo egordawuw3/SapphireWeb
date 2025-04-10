@@ -1,0 +1,19 @@
+@import 'base.css';
+@import 'home.css';
+@import 'portfolio.css';
+@import 'team.css';
+@import 'contact.css';
+
+/* Добавить в main.css */
+
+/* Анимации для элементов при скролле */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
