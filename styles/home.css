@@ -52,6 +52,24 @@
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+}
+
+.home__service p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+/* Улучшаем контрастность */
+.home__service h3 {
+  font-size: 1.5rem;
+  color: #00f2fe;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
 }
 
 .home__services {
@@ -280,6 +298,8 @@
 .home__works-cta {
   text-align: center;
   margin-top: 3rem;
+  margin-bottom: 1rem;  /* Добавляем нижний отступ */
+  padding-bottom: 2rem; /* Дополнительный отступ для визуального разделения */
 }
 
 /* Медиа-запросы для главной страницы */
