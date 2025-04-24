@@ -86,7 +86,10 @@
       <div class="home__works-grid">
         <div class="work-card">
           <div class="work-card__image">
-            <img src="images/project1.jpg" alt="Проект 1">
+            <picture>
+                <source srcset="images/optimized/project1.webp" type="image/webp">
+                <img src="images/project1.jpg" alt="Проект 1">
+            </picture>
           </div>
           <div class="work-card__content">
             <h3>Редизайн корпоративного сайта</h3>
@@ -94,8 +97,36 @@
           </div>
         </div>
         <div class="work-card">
+          <!-- Заменим все блоки изображений на оптимизированные версии -->
           <div class="work-card__image">
-            <img src="images/project2.jpg" alt="Проект 2">
+              <picture>
+                  <!-- WebP версии -->
+                  <source
+                      media="(min-width: 1280px)"
+                      srcset="images/optimized/project1-large.webp"
+                      type="image/webp">
+                  <source
+                      media="(min-width: 640px)"
+                      srcset="images/optimized/project1-medium.webp"
+                      type="image/webp">
+                  <source
+                      srcset="images/optimized/project1-small.webp"
+                      type="image/webp">
+                      
+                  <!-- JPEG фолбэк -->
+                  <source
+                      media="(min-width: 1280px)"
+                      srcset="images/optimized/project1-large.jpg">
+                  <source
+                      media="(min-width: 640px)"
+                      srcset="images/optimized/project1-medium.jpg">
+                  <img
+                      src="images/optimized/project1-small.jpg"
+                      alt="Проект 1"
+                      loading="lazy"
+                      width="640"
+                      height="360">
+              </picture>
           </div>
           <div class="work-card__content">
             <h3>Мобильное приложение</h3>
@@ -104,7 +135,7 @@
         </div>
         <div class="work-card">
           <div class="work-card__image">
-            <img src="images/project3.jpg" alt="Проект 3">
+            <img src="images/team1.jpg" alt="Александр Багненко" loading="lazy">
           </div>
           <div class="work-card__content">
             <h3>Рекламный ролик</h3>

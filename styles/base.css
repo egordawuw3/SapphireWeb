@@ -271,3 +271,12 @@ button {
     padding: 1.25rem 0;
   }
 }
+
+:root {
+  --primary-color: #00f2fe;
+  --secondary-color: #4facfe;
+  --bg-color: #0a0a0a;
+  --text-color: rgba(255, 255, 255, 0.7);
+  --gradient: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  --overlay: rgba(255, 255, 255, 0.03);
+}

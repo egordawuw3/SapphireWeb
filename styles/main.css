@@ -17,3 +17,19 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .navbar__links {
+    padding: 1rem;
+  }
+  
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
