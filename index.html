@@ -91,7 +91,7 @@
       font-weight: 400;
       font-display: swap;
       src: local('Inter'),
-           url('/fonts/Inter-Regular.woff2') format('woff2');
+           url('fonts/Inter-Regular.woff2') format('woff2');
       font-synthesis: none;
     }
     
@@ -101,11 +101,51 @@
       font-weight: 500;
       font-display: optional;
       src: local('Inter'),
-           url('/fonts/Inter-Medium.woff2') format('woff2');
+           url('fonts/Inter-Medium.woff2') format('woff2');
       font-synthesis: none;
     }
   </style>
+  
+  <!-- Optimize LCP rendering -->
+  <style>
+    /* Optimize main title rendering */
+    .home__title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      contain: layout style;
+      content-visibility: auto;
+      contain-intrinsic-size: 0 60px;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Optimize subtitle rendering */
+    .home__subtitle {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      contain: layout style;
+      content-visibility: auto;
+      contain-intrinsic-size: 0 24px;
+    }
+
+    /* Optimize animation performance */
+    .animate-on-scroll {
+      backface-visibility: hidden;
+      transform: translateZ(0);
+      will-change: transform, opacity;
+      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    }
+
+    .animate-on-scroll:not(.animated) {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  </style>
+
+  <!-- Preload critical hero section image -->
+  <link rel="preload" as="image" href="images/hero-bg.webp" type="image/webp">
 </head>
+
 <body>
   <!-- Навигация -->
   <nav class="navbar">
@@ -123,9 +163,8 @@
   <!-- Главная секция -->
   <section class="home">
     <div class="home__hero">
-      <h1 class="home__title animate-on-scroll">Создаем Инновационные Цифровые Решения</h1>
+      <h1 class="home__title">Создаем Инновационные Цифровые Решения</h1>
       <p class="home__subtitle">Креативный Дизайн • Современная Разработка • Профессиональный Монтаж</p>
-
       <div class="home__services" style="contain: layout size;">
         <h2>Наши услуги</h2>
         <div class="home__service">
@@ -226,6 +265,20 @@
         </div>
         <div class="work-card">
           <div class="work-card__image">
+            <picture>
+                <!-- Fix WebP paths -->
+                <source
+                    media="(min-width: 1280px)"
+                    srcset="images/project1-large.webp"
+                    type="image/webp">
+                <source
+                    media="(min-width: 640px)"
+                    srcset="images/project1-medium.webp"
+                    type="image/webp">
+                <source
+                    srcset="images/project1-small.webp"
+                    type="image/webp">
+            </picture>
             <img src="images/team1.jpg" alt="Александр Багненко" loading="lazy">
           </div>
           <div class="work-card__content">
