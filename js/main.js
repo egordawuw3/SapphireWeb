@@ -303,18 +303,25 @@ document.addEventListener('DOMContentLoaded', addModalStyles);
 
 // Анимация появления элементов при прокрутке с использованием Intersection Observer
 const setupScrollAnimation = () => {
-  const elements = document.querySelectorAll('.animate-on-scroll');
+  // Optimize animation performance
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
   
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('animated');
+        requestAnimationFrame(() => {
+          entry.target.classList.add('animated');
+        });
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, observerOptions);
   
-  elements.forEach(element => {
+  document.querySelectorAll('.animate-on-scroll').forEach(element => {
     observer.observe(element);
   });
 };
