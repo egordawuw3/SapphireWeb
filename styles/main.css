@@ -33,3 +33,43 @@
     min-width: 44px;
   }
 }
+
+
+/* Prevent layout shifts for services section */
+.home__services {
+  min-height: 300px; /* Set explicit minimum height */
+  contain: layout size;
+  container-type: inline-size;
+  width: 100%;
+}
+
+/* Prevent subtitle text layout shifts */
+.home__subtitle {
+  min-height: 1.5em;
+  line-height: 1.5;
+  margin: 1em 0;
+  contain: layout style;
+}
+
+/* Ensure service cards maintain consistent height */
+.home__service {
+  height: auto;
+  min-height: 150px;
+  contain: layout;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Add containment to images */
+.work-card__image {
+  aspect-ratio: 16/9;
+  contain: size layout;
+  overflow: hidden;
+}
+
+/* Ensure images maintain aspect ratio */
+.work-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

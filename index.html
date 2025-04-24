@@ -84,6 +84,7 @@
   <link rel="stylesheet" href="styles/contact.css" media="print" onload="this.media='all'">
   <!-- Remove Google Fonts CDN links and replace with self-hosted fonts -->
   <style>
+    /* Font loading optimization */
     @font-face {
       font-family: 'Inter';
       font-style: normal;
@@ -91,56 +92,17 @@
       font-display: swap;
       src: local('Inter'),
            url('/fonts/Inter-Regular.woff2') format('woff2');
+      font-synthesis: none;
     }
+    
     @font-face {
       font-family: 'Inter';
       font-style: normal;
       font-weight: 500;
-      font-display: swap;
+      font-display: optional;
       src: local('Inter'),
            url('/fonts/Inter-Medium.woff2') format('woff2');
-    }
-    @font-face {
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 600;
-      font-display: swap;
-      src: local('Inter'),
-           url('/fonts/Inter-SemiBold.woff2') format('woff2');
-    }
-    @font-face {
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 700;
-      font-display: swap;
-      src: local('Inter'),
-           url('/fonts/Inter-Bold.woff2') format('woff2');
-    }
-  </style>
-  <!-- Add preload for critical content -->
-  <link rel="preload" as="style" href="styles/main.css">
-  <link rel="preload" as="font" href="/fonts/Inter-Bold.woff2" type="font/woff2" crossorigin>
-  
-  <style>
-    /* Optimize LCP element */
-    .home__title {
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      will-change: transform, opacity;
-      contain: layout;
-      content-visibility: auto;
-    }
-
-    /* Optimize animation performance */
-    .animate-on-scroll {
-      transform: translateY(0);
-      opacity: 1;
-      transition: transform 0.4s ease-out, opacity 0.4s ease-out;
-    }
-
-    .animate-on-scroll:not(.animated) {
-      transform: translateY(20px);
-      opacity: 0;
+      font-synthesis: none;
     }
   </style>
 </head>
@@ -164,7 +126,8 @@
       <h1 class="home__title animate-on-scroll">Создаем Инновационные Цифровые Решения</h1>
       <p class="home__subtitle">Креативный Дизайн • Современная Разработка • Профессиональный Монтаж</p>
 
-      <div class="home__services">
+      <div class="home__services" style="contain: layout size;">
+        <h2>Наши услуги</h2>
         <div class="home__service">
           <h3>Дизайн</h3>
           <p>UI/UX дизайн, брендинг, графика</p>
@@ -311,6 +274,7 @@
   </footer>
 
   <!-- Скрипты -->
-  <script src="js/main.js"></script>
+  <!-- Defer non-critical JavaScript -->
+  <script src="js/main.js" defer></script>
 </body>
 </html>
